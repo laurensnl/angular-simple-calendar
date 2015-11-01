@@ -8,7 +8,7 @@ Simple customizable AngularJS calendar with no dependencies. Supports simple eve
 Install via bower:
 
 ```bash
-bower install --save angular-simple-calendar
+bower install --save https://github.com/laurensnl/angular-simple-calendar
 ```
 
 Add to index.html:
