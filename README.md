@@ -18,12 +18,12 @@ Add to index.html:
 <script type="text/javascript" src="bower_components/angular-simple-calendar/dist/angular-simple-calendar.js"></script>
 ```
 
-Inject ``'500tech.simple-calendar'`` into your main module:
+Inject ``'simpleCalendar'`` into your main module:
 
 ```javascript
 angular.module('App', [
   // ... other dependencies
-  '500tech.simple-calendar'
+  'simpleCalendar'
 ])
 ```
 
@@ -39,27 +39,15 @@ app.controller('UsersIndexController', ['$scope', function($scope) {
   // Dates can be passed as strings or Date objects 
   $scope.calendarOptions = {
     defaultDate: "2016-10-10",
-    minDate: new Date(),
-    maxDate: new Date([2020, 12, 31]),
+    firstDayIsMonday: true,
+    scope: modal.data.selectedDates,
     dayNamesLength: 1, // How to display weekdays (1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names; default is 1)
-    eventClick: $scope.eventClick,
-    dateClick: $scope.dateClick
+    dateClick: function() { ... }
   };
-  
-  $scope.events = [
-      {title: 'NY', date: new Date([2015, 12, 31])},
-      {title: 'ID', date: new Date([2015, 6, 4])}
-    ];
 }]);
 ```
 
-## Events
-
-You can pass two functions in options: eventClick and/or dateClick.
-
-If clicked date has an event on it, eventClick will fire, otherwise will dateClick.
-
-Both functions can get an object with data about clicked date:
+The dateClick function will get an object with data about clicked date:
 
 ```javascript
 {
@@ -74,67 +62,6 @@ Both functions can get an object with data about clicked date:
 ```
 
 
-## Customization
-
-Simple calendar is very easy to customize via css:
-
-```scss
-simple-calendar {
-  * {
-    user-select: none;
-  }
-  
-  .calendar{
-    padding: 0;
-    border: 1px solid #dddddd;
-    background-color: #fff;
-  }
-  
-  .move-month { cursor: pointer; }
-  .prev-month { float: left; }
-  .next-month { float: right; }
-  
-  .current-month {
-    width: 100%;
-    text-align: center;
-    padding: 20px 8px;
-  }
-  
-  .week {
-    height: 30px;
-    
-    .day:last-child {
-      border-right: none;
-    }
-  }
-  
-  .weekday { text-align: center; }
-  
-  .weekday, .day {
-    display: inline-block;
-    width: calc(100% / 7);
-  }
-  
-  .day {
-    height: 30px;
-    padding: 2px;
-    border: 1px solid #dddddd;
-    border-bottom: none;
-    border-left: none;
-    overflow: hidden;
-
-    &:hover { cursor: pointer; }
-    &.default { background-color: lightblue; }
-    &.event { background-color: #fdf3ea; }
-
-    &.disabled {
-      cursor: default;
-      color: silver;
-      background-color: white;
-    }
-  }
-}
-```
 
 ## License
 
