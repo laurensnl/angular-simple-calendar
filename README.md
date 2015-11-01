@@ -63,6 +63,12 @@ The dateClick function will get an object with data about clicked date:
 
 
 
+## Dependencies
+
+ngTouch
+
+
+
 ## License
 
 MIT Licensed
