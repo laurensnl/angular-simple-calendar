@@ -4,7 +4,7 @@ angular.module('simpleCalendar', []).directive('simpleCalendar', function () {
     scope: {
       options: '=?'
     },
-    template: '<div class="calendar">' +
+    template: '<div class="calendar" ng-swipe-right="prevMonth()" ng-swipe-left="nextMonth()">' +
       '<div class="current-month">' +
       '<div class="move-month prev-month" ng-click="prevMonth()">' +
       '<span ng-show="allowedPrevMonth()" class="icon-arrow-left"></span>' +
@@ -30,7 +30,7 @@ angular.module('simpleCalendar', []).directive('simpleCalendar', function () {
       '</div>' +
       '</div>' +
       '</div>',
-    controller: ['$scope', '$parse', function ($scope, $parse) {
+    controller: ['$scope', function ($scope) {
       var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
       
       if($scope.options.firstDayIsMonday) { 
