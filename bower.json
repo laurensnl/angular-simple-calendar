@@ -2,7 +2,8 @@
   "name": "angular-simple-calendar",
   "version": "1.1.4",
   "authors": [
-    "Ilya Gelman <ilyagelman@ilyagelman.com>"
+    "Ilya Gelman <ilyagelman@ilyagelman.com>",
+    "Laurens Maarschalkerweerd"
   ],
   "description": "Simple customizable AngularJS calendar with no dependencies and timed events",
   "main": ["dist/angular-simple-calendar.css, dist/angular-simple-calendar.js"],
